@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KwikKwekSnack.Web", "KwikKwekSnack.Web\KwikKwekSnack.Web.csproj", "{D111DD8E-93BB-4EF8-9443-924D55EFB275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KwikKwekSnack.Data", "KwikKwekSnack.Data\KwikKwekSnack.Data.csproj", "{E0EF7E99-00CC-453F-8EF3-70F436B4D549}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KwikKwekSnack.Console", "KwikKwekSnack.Console\KwikKwekSnack.Console.csproj", "{C64AC5AE-5AAD-4603-A08E-57DB0D166B2D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D111DD8E-93BB-4EF8-9443-924D55EFB275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D111DD8E-93BB-4EF8-9443-924D55EFB275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D111DD8E-93BB-4EF8-9443-924D55EFB275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D111DD8E-93BB-4EF8-9443-924D55EFB275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E0EF7E99-00CC-453F-8EF3-70F436B4D549}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E0EF7E99-00CC-453F-8EF3-70F436B4D549}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E0EF7E99-00CC-453F-8EF3-70F436B4D549}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E0EF7E99-00CC-453F-8EF3-70F436B4D549}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C64AC5AE-5AAD-4603-A08E-57DB0D166B2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64AC5AE-5AAD-4603-A08E-57DB0D166B2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64AC5AE-5AAD-4603-A08E-57DB0D166B2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64AC5AE-5AAD-4603-A08E-57DB0D166B2D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

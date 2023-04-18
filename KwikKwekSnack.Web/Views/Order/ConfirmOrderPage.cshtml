@@ -1,0 +1,61 @@
+﻿@using KwikKwekSnack.Data.Utils
+@model KwikKwekSnack.Data.Models.Order
+
+@functions {
+    private string GenerateReceipt()
+    {
+        @Html.Raw("\'")
+        @foreach (var item in @Model!.OrderItems) {
+            var product = ProductUtil.GetProductFromOrderItem(item)!;
+            @(product.Name + "    x" + item.Amount + "  " + product.Price)
+            var desc = ProductUtil.GenerateProductDescription(item);
+            if (desc.Length > 0) {
+                @Html.Raw("<br>")
+                @("- " + desc)
+            }
+            @Html.Raw("<br>")
+        }
+        @Html.Raw("\'")
+        return "";
+    }
+}
+
+@{
+    ViewBag.Title = "Kassabon";
+    Layout = "_Layout";
+    var totalPrice = decimal.Round(Model!.TotalPrice, 2);
+}
+
+<h2>Kassabon</h2>
+<h3>Bestelnummer: @Model!.Id</h3>
+<h4>Totaal bedrag: &euro;@totalPrice</h4>
+@{
+    if (@Model.RetrievalType == KwikKwekSnack.Data.Models.RetrievalType.HierOpeten) {
+        <h2>Je hebt gekozen voor hier opeten</h2>
+        <h6>Zodra je bestelling klaar is, verschijnt het nummer op het scherm. Zoek alvast een plekje uit in het restaurant.</h6>
+    }
+    else {
+        <h2>Je hebt gekozen voor afhalen</h2>
+        <h6>Zodra je bestelling klaar is, verschijnt het nummer op het scherm. Je bestelling wordt ingepakt.</h6>
+    }
+}
+<button type="button" class="btn btn-primary my-2" onclick="printReceipt()">Print de bon!</button>
+<script>
+    function printReceipt() {
+         var uniqueName = new Date();
+         var windowName = 'Print' + uniqueName.getTime();
+        
+         var wdw = window.open('', windowName, 'width=0,height=0');
+         wdw.document.writeln("Kassabon - #@Model!.Id <br><br>");
+         
+         wdw.document.write(@GenerateReceipt());
+         wdw.document.write("<br>")
+         wdw.document.write("Total price: &euro;" + @totalPrice);
+         
+         wdw.document.close();
+         wdw.print();
+         wdw.onafterprint = wdw.close;
+    }
+</script>
+
+<a href="@Url.Action("Index", "Home")" class="list-group-item list-group-item-action bg-light">Terug naar Home</a>

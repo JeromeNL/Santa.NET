@@ -1,0 +1,17 @@
+﻿@model IEnumerable<KwikKwekSnack.Data.Models.Products.Snack>
+
+@{
+    ViewBag.Title = "Snacks";
+    Layout = "_OrderLayout";
+}
+
+<h2>Kies een Snack</h2>
+<div class="row row-cols-1 row-cols-md-2 g-2">
+    @foreach (var item in @Model){
+        <span role="button" onclick="location.href='@Url.Action("SnackExtraPage", "Order", new { id = item.Id })'">
+            <partial name="_ProductCard" model="item"/>
+        </span>
+    }
+</div>
+
+<a href="@Url.Action("DrinkPage", "Order")" class="list-group-item list-group-item-action bg-light">Ga naar drinken</a>

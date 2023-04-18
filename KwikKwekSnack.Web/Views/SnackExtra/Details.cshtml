@@ -1,0 +1,30 @@
+﻿@model KwikKwekSnack.Data.Models.Products.SnackExtra
+
+@{
+    ViewData["Title"] = "SnackExtra eigenschappen";
+}
+
+<h1>Eigenschappen</h1>
+
+<div>
+    <h4>SnackExtra</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Bewerk</a> |
+    <a asp-action="Index">Terug naar SnackExtra's</a>
+</div>

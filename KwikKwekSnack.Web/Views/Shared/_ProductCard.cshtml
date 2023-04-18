@@ -1,0 +1,20 @@
+﻿@model KwikKwekSnack.Data.Models.Products.Product
+
+
+<div class="col">
+    <div class="card">
+        <div class="d-flex justify-content-center">
+            <img src="@Model.ImageUrl" width="200" height="200"
+                 class="mt-2"
+                 style="object-fit: contain"
+                 alt="Hollywood Sign on The Hill"/>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text">
+                @Model.Description
+            </p>
+            <p>&euro; @Model.Price</p>
+        </div>
+    </div>
+</div>

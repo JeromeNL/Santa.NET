@@ -1,0 +1,17 @@
+﻿@model KwikKwekSnack.Web.Models.SnackExtraPartialModel
+
+@{
+    var selectedSnacks = @Model.SnackExtraViewModel.SelectedSnackExtras.ToList();
+
+    var seId = @Model.SnackExtra.Id;
+    var selected = selectedSnacks.Contains(seId);
+    if (selected)
+        selectedSnacks.Remove(seId);
+    else
+        selectedSnacks.Add(seId);
+}
+
+<div class="list-group-item" role="button" onclick="location.href='@Url.Action("AddExtraToSnack", "Order", new { @id = @Model.SnackExtraViewModel.OrderSnack.SnackId, @extras = selectedSnacks })'">
+    <input type="checkbox" class="me-2" checked="@selected" readonly/>
+    <a>@Model.SnackExtra.Name</a>
+</div>

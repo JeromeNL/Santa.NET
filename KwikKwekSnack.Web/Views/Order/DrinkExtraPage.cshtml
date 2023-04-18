@@ -1,0 +1,68 @@
+﻿@using KwikKwekSnack.Data.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model KwikKwekSnack.Data.Models.OrderDrink;
+
+@{
+    ViewBag.Title = "DrinkExtras";
+    Layout = "_OrderLayout";
+}
+
+<h2>Kies een Rietje/ijsklontjes</h2>
+
+
+    
+<form asp-action="DrinkExtraPage" method="POST">
+    @{
+            decimal basePrice = Model.Drink.Price;
+        }
+        <div class="d-flex flex-row" style="height: 20em;">
+        <img src="@Model.Drink.ImageUrl" alt="Drink Image" class="h-25" />
+        <div>
+            <h2>@Model.Drink.Name</h2>
+            <h3>Small</h3>
+                <h5>&euro;@basePrice</h5>
+                @Html.RadioButtonFor(m => m.Size,DrinkSize.Small, new { @checked = "checked" })
+
+        </div>
+        <img src="@Model.Drink.ImageUrl" alt="Drink Image" class="h-50" />
+        <div>
+            <h2>@Model.Drink.Name</h2>
+            <h3>Medium</h3>
+                <h5>&euro;@(Decimal.Round(basePrice * 1.25m, 2))</h5>
+                @Html.RadioButtonFor(m => m.Size, DrinkSize.Medium, new { @checked = "checked" })
+                
+        </div>
+        <img src="@Model.Drink.ImageUrl" alt="Drink Image" class="h-75" />
+        <div>
+            <h2>@Model.Drink.Name</h2>
+            <h3>Large</h3>
+                <h5>&euro;@(Decimal.Round( basePrice * 1.5m, 2))</h5>
+                @Html.RadioButtonFor(m => m.Size, DrinkSize.Large, new { @checked = "checked" })
+
+        </div>
+        <img src="@Model.Drink.ImageUrl" alt="Drink Image" class="h-100" />
+        <div>
+            <h2>@Model.Drink.Name</h2>
+            <h3>Extra Large</h3>
+                <h5>&euro;@(Decimal.Round(basePrice * 1.75m, 2))</h5>
+                @Html.RadioButtonFor(m => m.Size, DrinkSize.ExtraLarge, new { @checked = "checked" })
+
+        </div>
+    </div>
+    <input type="hidden" asp-for="@Model.Id" value="0">
+    <input type="hidden" asp-for="@Model.DrinkId"/>
+    
+    <div class="my-3">
+        <label>Wil je ijs? (+0.15)</label>
+        @Html.CheckBoxFor(m => m.HasIce, new { @class = "form-check-input" })
+    </div>
+
+    <div class="my-3">
+    <label>Wil je een rietje? (+0.10)</label>
+        @Html.CheckBoxFor(m => m.HasStraw, new { @class = "form-check-input" })
+    </div>
+
+    <div class="my-3">
+     <input type="submit" value="Toevoegen" class="btn btn-primary"/>
+    </div>
+</form>

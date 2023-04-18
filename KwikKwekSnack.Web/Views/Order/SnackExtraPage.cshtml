@@ -1,0 +1,35 @@
+﻿@using KwikKwekSnack.Web.Models
+@model KwikKwekSnack.Web.Models.SnackExtraViewModel
+
+@{
+    ViewBag.Title = "SnackExtras";
+    Layout = "_OrderLayout";
+}
+<h2>Kies extra('s)</h2>
+<div class="mb-3">
+    <img src="@Model.SelectedSnack.ImageUrl" alt="Snack Image" style="object-fit: contain; width: 10em; height: 10em"/>
+    <h4>@Model.SelectedSnack.Name</h4>
+</div>
+<ul class="list-group list-group-light">
+
+    <form asp-action="SnackExtraPage" method="POST">
+        <input type="hidden" asp-for="OrderSnack.Id" value="0">
+        <input type="hidden" asp-for="OrderSnack.SnackId"/> 
+        @for(var i = 0; i < @Model.OrderSnack.OrderSnackExtra.Count; i++)
+        {
+            @Html.HiddenFor(model => Model.OrderSnack.OrderSnackExtra[i].SnackExtraId)
+        }
+
+        @foreach (var snackExtra in @Model.SnackExtras) {
+            var sePartial = new SnackExtraPartialModel
+            {
+                SnackExtraViewModel = @Model,
+                SnackExtra = snackExtra
+            };
+            <partial name="_SnackExtraCard" model="sePartial"/>
+        }
+        <div class="my-3">
+         <input type="submit" value="Toevoegen" class="btn btn-primary"/>
+        </div>
+    </form>
+</ul>

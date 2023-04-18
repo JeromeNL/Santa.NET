@@ -1,0 +1,19 @@
+﻿@using KwikKwekSnack.Web.Utils
+@{
+    var orders = DataUtil.GetOrCreateOrder(Context.Session);
+}
+
+
+<div class="mx-5 card p-2">
+    <h3>Cart</h3>
+    @if (orders is {OrderItems: {}})
+    {
+        foreach (var orderItem in orders.OrderItems) {
+            <partial name="_OrderView" model="orderItem"/>
+        }
+    }
+    else {
+        <p>Geen items in winkelmandje</p>
+    }
+    <div><strong>Totaal:</strong> &euro;@orders.CalculateTotalPrice()</div>
+</div>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <img src="@Url.Content("~/assets/images/logo.png")" alt="logo" class="navbar-brand" height="100" asp-area="" asp-controller="Home" asp-action="Index" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Snack" asp-action="Index">Snacks</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Drink" asp-action="Index">Drinken</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="SnackExtra" asp-action="Index">Snack Extra's</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="OrderManager" asp-action="Index">Orders</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="SnackPage">Nieuwe Order</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

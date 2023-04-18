@@ -1,0 +1,20 @@
+﻿@model KwikKwekSnack.Web.Models.CheckOutViewModel
+@{
+    ViewBag.Title = "Afronden Bestelling";
+    Layout = "_OrderLayout";
+}
+
+<h2>Bestelling afronden</h2>
+
+<h4>Hier opeten of meenemen?</h4>
+@foreach(var item in @Model.retrievalTypes){
+    <span role="button" onclick="location.href='@Url.Action("ConfirmOrderPage", "Order", new {RetrievalType = item} )'">
+        <partial name="_RetrievalCard" model="item" />
+    </span>
+}
+
+
+<a href="@Url.Action("SnackPage", "Order")" class="list-group-item list-group-item-action bg-light">Nog een Snack</a>
+<a href="@Url.Action("DrinkPage", "Order")" class="list-group-item list-group-item-action bg-light">Nog een drankje</a>
+
+    
